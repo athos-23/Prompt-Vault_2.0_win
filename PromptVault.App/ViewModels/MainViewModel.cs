@@ -1,4 +1,40 @@
 using System.Collections.ObjectModel;
+using PromptVault.App.Data;
+using PromptVault.App.Models;
+
+namespace PromptVault.App.ViewModels;
+
+public class MainViewModel
+{
+    private readonly VaultDatabase database;
+
+
+    public ObservableCollection<Prompt> Prompts { get; set; }
+
+
+    public Prompt? SelectedPrompt { get; set; }
+
+
+    public MainViewModel()
+    {
+        database = new VaultDatabase();
+
+        Prompts = new ObservableCollection<Prompt>();
+
+        LoadPrompts();
+    }
+
+
+    private void LoadPrompts()
+    {
+        var items = database.GetPrompts();
+
+        foreach (var item in items)
+        {
+            Prompts.Add(item);
+        }
+    }
+}using System.Collections.ObjectModel;
 using PromptVault.App.Models;
 
 namespace PromptVault.App.ViewModels;
