@@ -46,9 +46,43 @@
                                FontSize="11"/>
 
 
-                    <TextBlock Text="📁 Coding"
+                    <ListBox ItemsSource="{Binding Prompts}"
+         Background="Transparent"
+         BorderThickness="0">
+
+    <ListBox.ItemTemplate>
+
+        <DataTemplate>
+
+            <Border Background="#25252A"
+                    Margin="10"
+                    Padding="10"
+                    CornerRadius="8">
+
+                <StackPanel>
+
+                    <TextBlock Text="{Binding Title}"
                                Foreground="White"
-                               Margin="20,5"/>
+                               FontWeight="Bold"/>
+
+                    <TextBlock Text="{Binding Project}"
+                               Foreground="Gray"
+                               FontSize="12"/>
+
+                    <TextBlock Text="{Binding Content}"
+                               Foreground="#CCCCCC"
+                               Margin="0,8,0,0"
+                               TextWrapping="Wrap"/>
+
+                </StackPanel>
+
+            </Border>
+
+        </DataTemplate>
+
+    </ListBox.ItemTemplate>
+
+</ListBox>
 
                     <TextBlock Text="📁 Scrittura"
                                Foreground="White"
